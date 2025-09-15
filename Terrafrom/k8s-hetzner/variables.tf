@@ -3,19 +3,23 @@ variable "HCLOUD_TOKEN" {}
 variable "CF_TOKEN" {}
 
 variable "cloudflare_zone_id" {
-  default = "<ENTER YOUR DOMAIN ZONE ID HERE>"
+  default = "ENTER_YOUR_ZONE_ID_HERE"
 }
 
-variable "ssh_key_atlas_pub" {
+variable "ssh_user" {
+  default = "root"
+}
+
+variable "ssh_key_pub" {
   default = "/root/.ssh/id_rsa.pub"
 }
 
-variable "ssh_key_atlas_priv" {
+variable "ssh_key_priv" {
   default = "/root/.ssh/id_rsa"
 }
 
 variable "domain" {
-  default = "<ENTER YOUR DOMAIN HERE>"
+  default = "k8s.sgate.org"
 }
 
 variable "k8s_version" {
@@ -49,7 +53,7 @@ variable "private_network_cidr" {
 variable "firewall_allowed_networks" {
   type        = list(string)
   default     = [
-    "<ENTER_YOUR_IP_HERE>/32",
+    "ENTER_YOUR_IP_HERE/32",
     "10.170.0.0/24",
    ]
 }
